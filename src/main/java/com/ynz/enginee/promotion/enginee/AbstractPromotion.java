@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class AbstractPromotion implements Payable {
-    protected final CartPriceEngine engine;
+    protected final Payable engine;
     protected final Cart cart;
 
     @Override

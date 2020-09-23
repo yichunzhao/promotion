@@ -28,6 +28,7 @@ class CartPriceEngineTest {
         assertNotNull(engine.getCart());
     }
 
+    //Scenario A
     @Test
     void whenNoPromotionTriggered_CartEngineCalculatePayment() {
         engine.getCart().addSkuAndAmount('A', 1);

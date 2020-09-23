@@ -54,4 +54,17 @@ class BuyNItemsTest {
         assertEquals(370, buyNItems.calculatePayment());
     }
 
+    //Scenario B
+    @Test
+    void whenCartHaving3A5B1C1D_TotalPriceIs280() {
+        cart.addSkuAndAmount('A', 3);
+        cart.addSkuAndAmount('B', 5);
+        cart.addSkuAndAmount('C', 1);
+        cart.addSkuAndAmount('D', 1);
+        BuyNItems buyNItems = new BuyNItems(engine, cart);
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(buyNItems, cart);
+        assertEquals(280, buySKUCombinations.calculatePayment());
+    }
+
+
 }

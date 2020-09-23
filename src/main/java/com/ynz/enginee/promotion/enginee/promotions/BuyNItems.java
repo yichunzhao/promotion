@@ -3,6 +3,7 @@ package com.ynz.enginee.promotion.enginee.promotions;
 import com.ynz.enginee.promotion.domain.Cart;
 import com.ynz.enginee.promotion.enginee.AbstractPromotion;
 import com.ynz.enginee.promotion.enginee.CartPriceEngine;
+import com.ynz.enginee.promotion.enginee.Payable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class BuyNItems extends AbstractPromotion {
         REMINDER, TIMES;
     }
 
-    public BuyNItems(CartPriceEngine engine, Cart cart) {
+    public BuyNItems(Payable engine, Cart cart) {
         super(engine, cart);
     }
 
