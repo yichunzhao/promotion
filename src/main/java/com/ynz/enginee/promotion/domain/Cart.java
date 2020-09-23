@@ -1,5 +1,6 @@
 package com.ynz.enginee.promotion.domain;
 
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.Set;
 @Component
 public class Cart {
     //sku and amount
+    @Getter
     private Map<Character, Integer> skuAmountMap = new HashMap<>();
 
     public void addSkuAndAmount(Character character, Integer amount) {
