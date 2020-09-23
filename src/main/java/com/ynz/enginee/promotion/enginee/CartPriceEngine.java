@@ -2,11 +2,13 @@ package com.ynz.enginee.promotion.enginee;
 
 import com.ynz.enginee.promotion.domain.Cart;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-
+@Component
 public class CartPriceEngine implements Payable {
+    @Getter
     private final Map<Character, Integer> priceMap;
 
     @Getter
@@ -18,9 +20,12 @@ public class CartPriceEngine implements Payable {
     }
 
     @Override
-    public Double calculatePayment() {
-
-        return null;
+    public Integer calculatePayment() {
+        if (!priceMap.keySet().containsAll(cart.getAllSKU()))
+            throw new IllegalStateException("SKU missing price plan.");
+        return cart.getAllSKU().stream()
+                .mapToInt(character -> cart.getSkuAmount(character) * priceMap.get(character))
+                .sum();
     }
 
 }

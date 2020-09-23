@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class AbstractPromotion implements Payable {
-    private final CartPriceEngine engine;
+    protected final CartPriceEngine engine;
 
     @Override
-    public Double calculatePayment() {
+    public Integer calculatePayment() {
         return engine.calculatePayment();
     }
 }

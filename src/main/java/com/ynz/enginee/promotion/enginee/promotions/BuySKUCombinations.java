@@ -9,7 +9,7 @@ public class BuySKUCombinations extends AbstractPromotion {
     }
 
     @Override
-    public Double calculatePayment() {
+    public Integer calculatePayment() {
         return super.calculatePayment();
     }
 }
