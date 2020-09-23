@@ -9,6 +9,7 @@ import java.util.Map;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 @SpringBootTest
 class AppConfigTest {
@@ -17,10 +18,12 @@ class AppConfigTest {
 
     @Test
     void injectedPricesAsExpected() {
-        assertThat(priceMap.get('A'), is(50));
-        assertThat(priceMap.get('B'), is(30));
-        assertThat(priceMap.get('C'), is(20));
-        assertThat(priceMap.get('D'), is(15));
+        assertAll(
+                () -> assertThat(priceMap.get('A'), is(50)),
+                () -> assertThat(priceMap.get('B'), is(30)),
+                () -> assertThat(priceMap.get('C'), is(20)),
+                () -> assertThat(priceMap.get('D'), is(15))
+        );
     }
 
     @Test
