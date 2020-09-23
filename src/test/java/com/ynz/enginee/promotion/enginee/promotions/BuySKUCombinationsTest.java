@@ -1,6 +1,7 @@
 package com.ynz.enginee.promotion.enginee.promotions;
 
 import com.ynz.enginee.promotion.domain.Cart;
+import com.ynz.enginee.promotion.enginee.CartPriceEngine;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class BuySKUCombinationsTest {
     @Autowired
-    private BuySKUCombinations buySKUCombinations;
+    private CartPriceEngine engine;
 
     @Autowired
     private Cart cart;
@@ -20,7 +21,9 @@ class BuySKUCombinationsTest {
         cart.addSkuAndAmount('C', 1);
         cart.addSkuAndAmount('D', 1);
 
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine);
         Integer paymentAfterPromotion = buySKUCombinations.calculatePayment();
+
         assertEquals(30, paymentAfterPromotion);
     }
 
@@ -31,7 +34,9 @@ class BuySKUCombinationsTest {
         cart.addSkuAndAmount('C', 1);
         cart.addSkuAndAmount('D', 1);
 
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine);
         Integer paymentAfterPromotion = buySKUCombinations.calculatePayment();
+
         assertEquals(110, paymentAfterPromotion);
     }
 
@@ -42,6 +47,7 @@ class BuySKUCombinationsTest {
         cart.addSkuAndAmount('C', 1);
         cart.addSkuAndAmount('D', 2);
 
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine);
         Integer paymentAfterPromotion = buySKUCombinations.calculatePayment();
         assertEquals(125, paymentAfterPromotion);
     }

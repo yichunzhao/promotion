@@ -2,13 +2,11 @@ package com.ynz.enginee.promotion.enginee.promotions;
 
 import com.ynz.enginee.promotion.enginee.AbstractPromotion;
 import com.ynz.enginee.promotion.enginee.CartPriceEngine;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Map;
 import java.util.OptionalInt;
 
-@Component
 public class BuySKUCombinations extends AbstractPromotion {
     public static final int C_D_Comb_SAVING = 5;
 
