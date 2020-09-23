@@ -54,7 +54,7 @@ class BuyNItemsTest {
         assertEquals(370, buyNItems.calculatePayment());
     }
 
-    //Scenario B
+    //Scenario C
     @Test
     void whenCartHaving3A5B1C1D_TotalPriceIs280() {
         cart.addSkuAndAmount('A', 3);
