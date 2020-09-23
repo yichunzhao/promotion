@@ -27,7 +27,7 @@ class BuySKUCombinationsTest {
         cart.addSkuAndAmount('C', 1);
         cart.addSkuAndAmount('D', 1);
 
-        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine);
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine, cart);
         Integer paymentAfterPromotion = buySKUCombinations.calculatePayment();
 
         assertEquals(30, paymentAfterPromotion);
@@ -40,7 +40,7 @@ class BuySKUCombinationsTest {
         cart.addSkuAndAmount('C', 1);
         cart.addSkuAndAmount('D', 1);
 
-        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine);
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine, cart);
         Integer paymentAfterPromotion = buySKUCombinations.calculatePayment();
 
         assertEquals(110, paymentAfterPromotion);
@@ -53,7 +53,7 @@ class BuySKUCombinationsTest {
         cart.addSkuAndAmount('C', 1);
         cart.addSkuAndAmount('D', 2);
 
-        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine);
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine, cart);
         Integer paymentAfterPromotion = buySKUCombinations.calculatePayment();
         assertEquals(125, paymentAfterPromotion);
     }

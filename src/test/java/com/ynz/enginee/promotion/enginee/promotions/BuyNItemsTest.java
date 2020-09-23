@@ -18,21 +18,21 @@ class BuyNItemsTest {
     private CartPriceEngine engine;
 
     @AfterEach
-    void tearDown(){
+    void tearDown() {
         cart.getSkuAmountMap().clear();
     }
 
     @Test
     void whenCartHavingThreeA_TotalPriceIs130() {
         cart.addSkuAndAmount('A', 3);
-        BuyNItems buyNItems = new BuyNItems(engine);
+        BuyNItems buyNItems = new BuyNItems(engine, cart);
         assertEquals(130, buyNItems.calculatePayment());
     }
 
     @Test
     void whenCartHavingTwoB_TotalPriceIS45() {
         cart.addSkuAndAmount('B', 2);
-        BuyNItems buyNItems = new BuyNItems(engine);
+        BuyNItems buyNItems = new BuyNItems(engine, cart);
         assertEquals(45, buyNItems.calculatePayment());
     }
 
@@ -40,7 +40,7 @@ class BuyNItemsTest {
     void whenCartHavingThreeATwoB_TotalPriceIs175() {
         cart.addSkuAndAmount('A', 3);
         cart.addSkuAndAmount('B', 2);
-        BuyNItems buyNItems = new BuyNItems(engine);
+        BuyNItems buyNItems = new BuyNItems(engine, cart);
         assertEquals(175, buyNItems.calculatePayment());
     }
 
@@ -50,7 +50,7 @@ class BuyNItemsTest {
         cart.addSkuAndAmount('A', 5);
         cart.addSkuAndAmount('B', 5);
         cart.addSkuAndAmount('C', 1);
-        BuyNItems buyNItems = new BuyNItems(engine);
+        BuyNItems buyNItems = new BuyNItems(engine, cart);
         assertEquals(370, buyNItems.calculatePayment());
     }
 

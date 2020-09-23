@@ -1,5 +1,6 @@
 package com.ynz.enginee.promotion.enginee.promotions;
 
+import com.ynz.enginee.promotion.domain.Cart;
 import com.ynz.enginee.promotion.enginee.AbstractPromotion;
 import com.ynz.enginee.promotion.enginee.CartPriceEngine;
 
@@ -10,13 +11,13 @@ import java.util.OptionalInt;
 public class BuySKUCombinations extends AbstractPromotion {
     public static final int C_D_Comb_SAVING = 5;
 
-    public BuySKUCombinations(CartPriceEngine engine) {
-        super(engine);
+    public BuySKUCombinations(CartPriceEngine engine, Cart cart) {
+        super(engine, cart);
     }
 
     @Override
     public Integer calculatePayment() {
-        OptionalInt numOfComb = findSKUCombinationsInCart(engine.getCart().getSkuAmountMap(), 'C', 'D');
+        OptionalInt numOfComb = findSKUCombinationsInCart(cart.getSkuAmountMap(), 'C', 'D');
 
         int saving = 0;
         if (numOfComb.isPresent()) {

@@ -1,5 +1,6 @@
 package com.ynz.enginee.promotion.enginee.promotions;
 
+import com.ynz.enginee.promotion.domain.Cart;
 import com.ynz.enginee.promotion.enginee.AbstractPromotion;
 import com.ynz.enginee.promotion.enginee.CartPriceEngine;
 
@@ -14,8 +15,8 @@ public class BuyNItems extends AbstractPromotion {
         REMINDER, TIMES;
     }
 
-    public BuyNItems(CartPriceEngine engine) {
-        super(engine);
+    public BuyNItems(CartPriceEngine engine, Cart cart) {
+        super(engine, cart);
     }
 
     @Override
@@ -23,8 +24,8 @@ public class BuyNItems extends AbstractPromotion {
         int saving = 0;
 
         //3 A gives a discount
-        if (engine.getCart().getAllSKU().contains('A')) {
-            int numOfA = engine.getCart().getSkuAmount('A');
+        if (cart.getAllSKU().contains('A')) {
+            int numOfA = cart.getSkuAmount('A');
 
             if (numOfA >= 3) {
                 Map<ResultType, Integer> r = findTimesAndReminder(numOfA, 3);
@@ -33,8 +34,8 @@ public class BuyNItems extends AbstractPromotion {
             }
         }
 
-        if (engine.getCart().getAllSKU().contains('B')) {
-            int numOfB = engine.getCart().getSkuAmount('B');
+        if (cart.getAllSKU().contains('B')) {
+            int numOfB = cart.getSkuAmount('B');
             if (numOfB >= 2) {
                 Map<ResultType, Integer> r = findTimesAndReminder(numOfB, 2);
                 int times = r.get(ResultType.TIMES);
