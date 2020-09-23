@@ -34,6 +34,17 @@ class BuySKUCombinationsTest {
     }
 
     @Test
+    void whenOnlyHaving1AAnd1B__TotalPriceIsStill80(){
+        cart.addSkuAndAmount('A', 1);
+        cart.addSkuAndAmount('B', 1);
+
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(engine, cart);
+        Integer paymentAfterPromotion = buySKUCombinations.calculatePayment();
+
+        assertEquals(80, paymentAfterPromotion);
+    }
+
+    @Test
     void whenOneABCDRespectively_PriceAfterPromotionIs110() {
         cart.addSkuAndAmount('A', 1);
         cart.addSkuAndAmount('B', 1);

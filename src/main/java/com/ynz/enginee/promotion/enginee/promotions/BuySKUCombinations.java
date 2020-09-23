@@ -2,7 +2,6 @@ package com.ynz.enginee.promotion.enginee.promotions;
 
 import com.ynz.enginee.promotion.domain.Cart;
 import com.ynz.enginee.promotion.enginee.AbstractPromotion;
-import com.ynz.enginee.promotion.enginee.CartPriceEngine;
 import com.ynz.enginee.promotion.enginee.Payable;
 
 import java.util.Arrays;

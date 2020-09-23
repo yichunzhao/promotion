@@ -3,6 +3,7 @@ package com.ynz.enginee.promotion.enginee.promotions;
 import com.ynz.enginee.promotion.domain.Cart;
 import com.ynz.enginee.promotion.enginee.CartPriceEngine;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -66,5 +67,14 @@ class BuyNItemsTest {
         assertEquals(280, buySKUCombinations.calculatePayment());
     }
 
+    @DisplayName("1A1B after promotion rule comb, price is still 80")
+    @Test
+    void whenOnly1A1B_TotalPriceIsStill80() {
+        cart.addSkuAndAmount('A', 1);
+        cart.addSkuAndAmount('B', 1);
+        BuyNItems buyNItems = new BuyNItems(engine, cart);
+        BuySKUCombinations buySKUCombinations = new BuySKUCombinations(buyNItems, cart);
+        assertEquals(80, buySKUCombinations.calculatePayment());
+    }
 
 }
