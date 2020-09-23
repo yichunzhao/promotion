@@ -2,6 +2,7 @@ package com.ynz.enginee.promotion.enginee.promotions;
 
 import com.ynz.enginee.promotion.domain.Cart;
 import com.ynz.enginee.promotion.enginee.CartPriceEngine;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +16,11 @@ class BuySKUCombinationsTest {
 
     @Autowired
     private Cart cart;
+
+    @AfterEach
+    void tearDown() {
+        cart.getSkuAmountMap().clear();
+    }
 
     @Test
     void whenOneCAndOneD_PriceAfterPromotionIs30() {
