@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+/**
+ * The base total price calculator without any promotion.
+ */
 @Component
 public class CartPriceEngine implements Payable {
     @Getter

@@ -4,6 +4,9 @@ import com.ynz.enginee.promotion.domain.Cart;
 import com.ynz.enginee.promotion.enginee.AbstractPromotion;
 import com.ynz.enginee.promotion.enginee.Payable;
 
+/**
+ * A decorator is used to re-calculate total price according the base price and Buy N-item rule.
+ */
 public class BuyNItems extends AbstractPromotion {
     private static final int THREE_A_SAVE = 20;
     private static final int TWO_B_SAVE = 15;

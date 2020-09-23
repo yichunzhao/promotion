@@ -8,6 +8,10 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.OptionalInt;
 
+/**
+ *  A decorator is used to calculate total price according to the base price and the promotion rule, i.e
+ *  buy SKU 1 and SKU 2.
+ */
 public class BuySKUCombinations extends AbstractPromotion {
     public static final int C_D_Comb_SAVING = 5;
 
