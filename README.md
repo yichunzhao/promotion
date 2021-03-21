@@ -1,5 +1,4 @@
 # promotion
-Exploring to structure a base sale with different promotion rules.
 
 A shoping cart contains items. the total price may be modified according to the different promotion rules. 
 
